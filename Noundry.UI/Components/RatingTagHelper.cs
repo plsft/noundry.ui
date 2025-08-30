@@ -50,7 +50,7 @@ public class RatingTagHelper : NoundryFormTagHelperBase
     /// <summary>
     /// Additional CSS classes
     /// </summary>
-    public string? CssClass { get; set; }
+    public new string? CssClass { get; set; }
 
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {

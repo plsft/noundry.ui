@@ -10,7 +10,7 @@ A modern C# ASP.NET TagHelper library that provides server-side components with 
 
 ## ✨ Features
 
-- **🎯 49 UI Components** - Complete set of interactive components
+- **🎯 54 UI Components** - Complete set of interactive components
 - **🔗 Full Model Binding** - Seamless ASP.NET model binding support  
 - **♿ Accessibility Ready** - ARIA attributes and keyboard navigation
 - **🎨 Tailwind CSS Integration** - Beautiful, consistent styling
@@ -68,15 +68,15 @@ builder.Services.AddNoundryUI(options =>
 
 ## 📦 Available Components
 
-### Layout & Navigation (9 components)
-- **Accordion** - Collapsible content sections
-- **Tabs** - Tab-based content switching  
-- **Dropdown Menu** - Context menus and user menus
-- **Breadcrumbs** - Navigation path components
-- **Context Menu** - Right-click context menus
-- **Command** - Advanced command palette with search
+### Layout & Navigation (14 TagHelpers)
+- **Accordion** - Collapsible content sections (2 TagHelpers)
+- **Tabs** - Tab-based content switching (2 TagHelpers)  
+- **Dropdown Menu** - Context menus and user menus (2 TagHelpers)
+- **Breadcrumbs** - Navigation path components (2 TagHelpers)
+- **Context Menu** - Right-click context menus (2 TagHelpers)
+- **Command** - Advanced command palette with search (3 TagHelpers)
 
-### Feedback & Status (8 components)
+### Feedback & Status (8 TagHelpers)
 - **Alert** - Notification messages with dismiss functionality
 - **Badge** - Status indicators and labels
 - **Toast** - Temporary notification messages
@@ -84,30 +84,30 @@ builder.Services.AddNoundryUI(options =>
 - **Progress** - Progress bars with animation
 - **Rating** - Interactive star rating system
 
-### Form Controls (13 components)
+### Form Controls (13 TagHelpers)
 - **Button** - Interactive buttons with loading states
 - **Text Input** - Text fields with validation support
 - **Textarea** - Multi-line text inputs with auto-resize
 - **Switch** - Toggle controls for boolean values
 - **Checkbox** - Checkbox controls with model binding
-- **Radio Group** - Radio button groups with validation
+- **Radio Group** - Radio button groups with validation (2 TagHelpers)
 - **Date Picker** - Calendar-based date selection
 - **Date Range Picker** - Advanced date range selection with quick presets
-- **Select** - Advanced dropdown with search capability
-- **Combobox** - Searchable combo box selection
+- **Select** - Advanced dropdown with search capability (2 TagHelpers)
+- **Combobox** - Searchable combo box selection (2 TagHelpers)
 
-### Overlays & Modals (7 components)
+### Overlays & Modals (8 TagHelpers)
 - **Modal** - Dialog windows with backdrop
-- **Slide Over** - Side panel overlays
+- **Slide Over** - Side panel overlays (2 TagHelpers)
 - **Tooltip** - Hover information display
 - **Popover** - Click-activated content overlay
 
-### Data Display (12 components)
-- **Card** - Content containers with header/body/footer
-- **Table** - Data tables with sorting and responsive design
+### Data Display (17 TagHelpers)
+- **Card** - Content containers with header/body/footer (4 TagHelpers)
+- **Table** - Data tables with sorting and responsive design (6 TagHelpers)
 - **Pagination** - Page navigation with ranges
 - **Copy to Clipboard** - Text copy functionality
-- **Skeleton** - Loading state placeholders with animations
+- **Skeleton** - Loading state placeholders with animations (5 TagHelpers)
 
 ## 🎯 Examples
 

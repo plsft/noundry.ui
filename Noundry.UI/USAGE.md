@@ -611,6 +611,31 @@ All interactive components use Alpine.js for client-side behavior. You can exten
 | `required` | bool | false | Mark as required |
 | `css-class` | string | null | Additional CSS classes |
 
+### Date Range Picker (`noundry-date-range-picker`)
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `label` | string | null | Label for the date range picker |
+| `format` | string | "M d, Y" | Date format: M d, Y \| MM-DD-YYYY \| DD-MM-YYYY \| YYYY-MM-DD \| D d M, Y |
+| `culture` | string | "en-US" | Culture for date formatting |
+| `start-date-property` | string | null | Property name for start date model binding |
+| `end-date-property` | string | null | Property name for end date model binding |
+| `start-date` | DateTime? | null | Initial start date |
+| `end-date` | DateTime? | null | Initial end date |
+| `min-date` | DateTime? | null | Minimum selectable date |
+| `max-date` | DateTime? | null | Maximum selectable date |
+| `show-quick-select` | bool | true | Whether to show quick select buttons |
+| `show-days-count` | bool | true | Whether to show days count display |
+| `show-clear` | bool | true | Whether to show clear selection button |
+| `quick-select-options` | string | "today,yesterday,last7,last30,last90" | Comma-separated quick select options |
+| `width` | string | "w-[17rem]" | Width of the picker container |
+| `calendar-width` | string | "w-[20rem]" | Width of the calendar dropdown |
+| `placeholder` | string | "Select date range" | Input placeholder text |
+| `help-text` | string | null | Help text displayed below picker |
+| `error-message` | string | null | Error message to display |
+| `disabled` | bool | false | Whether the picker is disabled |
+| `required` | bool | false | Whether the picker is required |
+| `css-class` | string | null | Additional CSS classes |
+
 ### Select (`noundry-select`)
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|

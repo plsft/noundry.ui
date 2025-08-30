@@ -217,7 +217,7 @@ public class ContextMenuItemTagHelper : NoundryTagHelperBase
         };
 
         // If it looks like HTML, return as-is, otherwise create icon
-        return icon.Contains('<') ? icon : CreateIcon(iconContent, "w-4 h-4 mr-2").ToString();
+        return icon.Contains('<') ? icon : CreateIcon(iconContent, "w-4 h-4 mr-2").ToString() ?? "";
     }
 }
 
