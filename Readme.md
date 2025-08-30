@@ -10,7 +10,7 @@ A modern C# ASP.NET TagHelper library that provides server-side components with 
 
 ## ✨ Features
 
-- **🎯 48 UI Components** - Complete set of interactive components
+- **🎯 49 UI Components** - Complete set of interactive components
 - **🔗 Full Model Binding** - Seamless ASP.NET model binding support  
 - **♿ Accessibility Ready** - ARIA attributes and keyboard navigation
 - **🎨 Tailwind CSS Integration** - Beautiful, consistent styling
@@ -84,7 +84,7 @@ builder.Services.AddNoundryUI(options =>
 - **Progress** - Progress bars with animation
 - **Rating** - Interactive star rating system
 
-### Form Controls (12 components)
+### Form Controls (13 components)
 - **Button** - Interactive buttons with loading states
 - **Text Input** - Text fields with validation support
 - **Textarea** - Multi-line text inputs with auto-resize
@@ -92,6 +92,7 @@ builder.Services.AddNoundryUI(options =>
 - **Checkbox** - Checkbox controls with model binding
 - **Radio Group** - Radio button groups with validation
 - **Date Picker** - Calendar-based date selection
+- **Date Range Picker** - Advanced date range selection with quick presets
 - **Select** - Advanced dropdown with search capability
 - **Combobox** - Searchable combo box selection
 
@@ -138,6 +139,28 @@ builder.Services.AddNoundryUI(options =>
         <noundry-date-picker label="Birth Date" />
     </div>
 </noundry-modal>
+```
+
+### Date Range Selection
+```html
+<!-- Basic date range picker -->
+<noundry-date-range-picker label="Select Date Range" 
+                           placeholder="Choose dates"
+                           show-quick-select="true" />
+
+<!-- Date range with model binding -->
+<noundry-date-range-picker label="Project Duration"
+                           start-date-property="Model.StartDate"
+                           end-date-property="Model.EndDate"
+                           show-quick-select="true"
+                           show-days-count="true"
+                           help-text="Select project start and end dates" />
+
+<!-- Custom format and options -->
+<noundry-date-range-picker format="YYYY-MM-DD"
+                           quick-select-options="today,last7,last30"
+                           width="w-80"
+                           calendar-width="w-96" />
 ```
 
 ### Skeleton Loading States

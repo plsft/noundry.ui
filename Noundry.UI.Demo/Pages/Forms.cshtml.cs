@@ -72,6 +72,12 @@ public class ContactFormViewModel
     [Display(Name = "Preferred Contact Date")]
     public DateTime? PreferredContactDate { get; set; }
 
+    [Display(Name = "Project Start Date")]
+    public DateTime? ProjectStartDate { get; set; }
+
+    [Display(Name = "Project End Date")]
+    public DateTime? ProjectEndDate { get; set; }
+
     [Display(Name = "Department")]
     public string? Department { get; set; }
 

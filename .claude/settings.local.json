@@ -10,7 +10,8 @@
       "Bash(git push:*)",
       "Bash(gh repo view:*)",
       "Bash(git commit:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Read(/C:\\Temp/**)"
     ],
     "deny": [],
     "ask": []

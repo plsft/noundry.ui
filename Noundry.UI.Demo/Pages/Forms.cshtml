@@ -37,6 +37,14 @@
             <noundry-date-picker asp-for="ContactForm.PreferredContactDate" 
                                 placeholder="Select preferred contact date" />
             
+            <noundry-date-range-picker label="Project Duration" 
+                                     start-date-property="ContactForm.ProjectStartDate" 
+                                     end-date-property="ContactForm.ProjectEndDate"
+                                     placeholder="Select project date range"
+                                     show-quick-select="true"
+                                     show-days-count="true"
+                                     help-text="Select the start and end dates for your project" />
+            
             <noundry-select asp-for="ContactForm.Department" placeholder="Select department">
                 <noundry-option value="">-- Select Department --</noundry-option>
                 <noundry-option value="sales">Sales</noundry-option>
@@ -129,6 +137,10 @@
                 <h3 class="font-medium mb-3">Advanced Controls</h3>
                 <div class="space-y-3">
                     <noundry-date-picker label="Select Date" placeholder="Pick a date" />
+                    <noundry-date-range-picker label="Date Range" 
+                                             placeholder="Select date range"
+                                             show-quick-select="true"
+                                             show-days-count="true" />
                     <noundry-textarea label="Comments" placeholder="Enter your comments..." rows="3" />
                     <noundry-progress value="60" label="Progress" show-percentage="true" />
                 </div>

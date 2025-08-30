@@ -245,6 +245,49 @@ Calendar-based date selection.
                      culture="en-GB" />
 ```
 
+### Date Range Picker
+Advanced date range selection with quick presets and range validation.
+
+```html
+<!-- Basic date range picker -->
+<noundry-date-range-picker label="Select Date Range" 
+                           placeholder="Choose dates"
+                           show-quick-select="true" />
+
+<!-- Date range with model binding -->
+<noundry-date-range-picker label="Project Duration"
+                           start-date-property="ProjectStartDate"
+                           end-date-property="ProjectEndDate"
+                           show-quick-select="true"
+                           show-days-count="true"
+                           help-text="Select project start and end dates" />
+
+<!-- Custom format and quick select options -->
+<noundry-date-range-picker label="Reporting Period"
+                           format="MM-DD-YYYY"
+                           quick-select-options="today,yesterday,last7,last30,last90"
+                           show-clear="true"
+                           width="w-80"
+                           calendar-width="w-96" />
+
+<!-- Date range with validation -->
+<noundry-date-range-picker label="Available Dates"
+                           min-date="DateTime.Now"
+                           max-date="DateTime.Now.AddMonths(6)"
+                           required="true"
+                           error-message="Please select a valid date range" />
+
+<!-- Different date formats -->
+<noundry-date-range-picker format="D d M, Y" />  <!-- Mon 15 Jan, 2024 -->
+<noundry-date-range-picker format="YYYY-MM-DD" /> <!-- 2024-01-15 -->
+<noundry-date-range-picker format="DD-MM-YYYY" /> <!-- 15-01-2024 -->
+
+<!-- Localized date range picker -->
+<noundry-date-range-picker culture="de-DE" 
+                           format="DD-MM-YYYY"
+                           label="Datumsbereich auswählen" />
+```
+
 ### Select
 Dropdown selection with search capability.
 
