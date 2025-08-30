@@ -91,6 +91,22 @@ That's it! You can now use Noundry UI components in your Razor views:
 
 Let's create a complete form using Noundry UI components:
 
+### Loading States with Skeleton
+
+Before building forms, you might want to show loading states while data is being fetched:
+
+```html
+<!-- Show skeleton while loading -->
+<noundry-skeleton-container loading="@Model.IsLoading">
+    <noundry-skeleton-card show-image="false" show-avatar="true" text-lines="3" />
+</noundry-skeleton-container>
+
+<!-- Or individual skeleton elements -->
+<noundry-skeleton variant="text" height="h-6" width="w-3/4" />
+<noundry-skeleton variant="avatar" size="lg" />
+<noundry-skeleton-text lines="3" variable-width="true" />
+```
+
 ### 1. Create a Model
 
 ```csharp
@@ -170,28 +186,47 @@ public async Task<IActionResult> Contact(ContactFormViewModel model)
 }
 ```
 
-## 🎨 Available Components
+## 🎨 Available Components (48 Total)
 
-### Layout & Navigation
+### Layout & Navigation (9 components)
 - **`<noundry-accordion>`** - Collapsible content sections
 - **`<noundry-tabs>`** - Tab-based content switching
 - **`<noundry-dropdown-menu>`** - Context menus and user menus
+- **`<noundry-breadcrumbs>`** - Navigation path components
+- **`<noundry-context-menu>`** - Right-click context menus
+- **`<noundry-command>`** - Advanced command palette
 
-### Feedback & Status
+### Feedback & Status (8 components)
 - **`<noundry-alert>`** - Notification messages
 - **`<noundry-badge>`** - Status indicators
 - **`<noundry-toast>`** - Temporary notifications
+- **`<noundry-banner>`** - Dismissible banners
+- **`<noundry-progress>`** - Progress bars
+- **`<noundry-rating>`** - Star rating system
 
-### Form Controls
+### Form Controls (12 components)
 - **`<noundry-button>`** - Interactive buttons
 - **`<noundry-text-input>`** - Text input fields
+- **`<noundry-textarea>`** - Multi-line text input
 - **`<noundry-switch>`** - Toggle controls
+- **`<noundry-checkbox>`** - Checkbox controls
+- **`<noundry-radio-group>`** - Radio button groups
 - **`<noundry-date-picker>`** - Calendar date selection
 - **`<noundry-select>`** - Advanced dropdown selection
+- **`<noundry-combobox>`** - Searchable combo box
 
-### Overlays
+### Overlays & Modals (7 components)
 - **`<noundry-modal>`** - Dialog windows
+- **`<noundry-slide-over>`** - Side panel overlays
 - **`<noundry-tooltip>`** - Hover information display
+- **`<noundry-popover>`** - Click-activated content overlay
+
+### Data Display (12 components)
+- **`<noundry-card>`** - Content containers
+- **`<noundry-table>`** - Data tables
+- **`<noundry-pagination>`** - Page navigation
+- **`<noundry-copy-to-clipboard>`** - Copy functionality
+- **`<noundry-skeleton>`** - Loading state placeholders
 
 ## ⚙️ Configuration Options
 
