@@ -5,11 +5,44 @@ All notable changes to the Noundry UI project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-08-30
+
+### ✨ Added
+
+#### New Multi-Select Component
+- **Multi-Select** (`noundry-multi-select`, `noundry-multi-select-option`) - Advanced multi-selection with API support
+  - **Tag Display**: Selected items shown as removable tags with color schemes
+  - **API Integration**: Load options from REST endpoints with configurable property mapping
+  - **Multiple Display Styles**: Tags, count, or list display modes
+  - **Model Binding**: Full ASP.NET model binding support for collections
+  - **Validation**: Error handling and required field support
+  - **Accessibility**: ARIA attributes and keyboard navigation
+  - **Customization**: Color schemes, max display items, remove buttons
+
+#### Features
+- **Static Options**: Define options inline using child TagHelpers
+- **API Loading**: Async loading from REST endpoints with error handling
+- **Tag Management**: Individual item removal with visual feedback
+- **Form Integration**: Proper hidden input generation for form submission
+- **Loading States**: Loading indicators and error messages
+- **Color Themes**: Blue, green, red, gray color schemes for selected tags
+
+### 🔧 Improvements
+- Fixed all compiler warnings for completely clean build (0 warnings, 0 errors)
+- Enhanced RatingTagHelper to properly hide inherited CssClass property
+- Added null safety to ContextMenuTagHelper icon handling
+
+### 📚 Documentation
+- Updated component count to 56 UI Components across all documentation
+- Added comprehensive multi-select examples to README.md and USAGE.md
+- Added complete properties reference table for multi-select components
+- Updated demo application with working multi-select examples
+
 ## [1.0.0] - 2025-08-30
 
 ### 🎉 Initial Release
 
-Complete C# ASP.NET TagHelper library with 48 UI components, modern Razor Pages demo, and comprehensive documentation.
+Complete C# ASP.NET TagHelper library with 54 UI components, modern Razor Pages demo, and comprehensive documentation.
 
 ### ✨ Added
 

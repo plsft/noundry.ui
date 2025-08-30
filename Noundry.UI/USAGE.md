@@ -317,6 +317,56 @@ Dropdown selection with search capability.
 </noundry-select>
 ```
 
+### Multi-Select
+Advanced multi-selection component with API support and tag display.
+
+```html
+<!-- Basic multi-select -->
+<noundry-multi-select label="Skills" 
+                     placeholder="Select your skills"
+                     color="blue">
+    <noundry-multi-select-option value="csharp">C#</noundry-multi-select-option>
+    <noundry-multi-select-option value="javascript">JavaScript</noundry-multi-select-option>
+    <noundry-multi-select-option value="python">Python</noundry-multi-select-option>
+    <noundry-multi-select-option value="sql">SQL</noundry-multi-select-option>
+</noundry-multi-select>
+
+<!-- Multi-select with model binding -->
+<noundry-multi-select asp-for="SelectedServices" 
+                     label="Services"
+                     color="green"
+                     show-remove-buttons="true">
+    <noundry-multi-select-option value="consulting">Consulting</noundry-multi-select-option>
+    <noundry-multi-select-option value="development">Development</noundry-multi-select-option>
+    <noundry-multi-select-option value="design">Design</noundry-multi-select-option>
+</noundry-multi-select>
+
+<!-- Multi-select with API integration -->
+<noundry-multi-select label="Team Members"
+                     use-api="true"
+                     api-url="/api/users"
+                     api-id-property="id"
+                     api-name-property="fullName"
+                     loading-text="Loading team members..."
+                     error-text="Failed to load team members"
+                     color="blue" />
+
+<!-- Different display styles -->
+<noundry-multi-select display-style="count" 
+                     max-display-items="3"
+                     label="Technologies">
+    <!-- Options... -->
+</noundry-multi-select>
+
+<!-- Custom styling -->
+<noundry-multi-select color="red"
+                     max-height="max-h-40"
+                     show-remove-buttons="false"
+                     help-text="Select multiple options from the list">
+    <!-- Options... -->
+</noundry-multi-select>
+```
+
 ### Toast
 Temporary notification messages.
 
@@ -635,6 +685,37 @@ All interactive components use Alpine.js for client-side behavior. You can exten
 | `disabled` | bool | false | Whether the picker is disabled |
 | `required` | bool | false | Whether the picker is required |
 | `css-class` | string | null | Additional CSS classes |
+
+### Multi-Select (`noundry-multi-select`)
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `asp-for` | ModelExpression | null | Model binding expression |
+| `label` | string | null | Label for the multi-select |
+| `use-api` | bool | false | Whether to load options from API |
+| `api-url` | string | null | API endpoint URL for loading options |
+| `api-id-property` | string | "id" | Property name for option ID in API response |
+| `api-name-property` | string | "name" | Property name for option name in API response |
+| `loading-text` | string | "Loading options..." | Text shown while loading API data |
+| `error-text` | string | "Failed to load options. Please try again." | Text shown when API fails |
+| `select-placeholder` | string | "Select options..." | Placeholder when no options selected |
+| `max-height` | string | "max-h-60" | Maximum height for dropdown |
+| `show-remove-buttons` | bool | true | Whether to show remove buttons on selected items |
+| `display-style` | string | "tags" | Display style: tags, list, count |
+| `max-display-items` | int | 5 | Max items before showing count |
+| `color` | string | "blue" | Color scheme: blue, green, red, gray |
+| `help-text` | string | null | Help text displayed below |
+| `error-message` | string | null | Error message to display |
+| `disabled` | bool | false | Whether the multi-select is disabled |
+| `required` | bool | false | Whether the multi-select is required |
+| `css-class` | string | null | Additional CSS classes |
+
+### Multi-Select Option (`noundry-multi-select-option`)
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `value` | string | required | Option value |
+| `id` | string | null | Option ID (for API compatibility) |
+| `selected` | bool | false | Whether initially selected |
+| `disabled` | bool | false | Whether the option is disabled |
 
 ### Select (`noundry-select`)
 | Property | Type | Default | Description |

@@ -84,6 +84,9 @@ public class ContactFormViewModel
     [Display(Name = "Services of Interest")]
     public List<string> InterestedServices { get; set; } = new();
 
+    [Display(Name = "Team Members")]
+    public List<string> TeamMembers { get; set; } = new();
+
     [Required]
     [Display(Name = "Message")]
     [StringLength(500, MinimumLength = 10)]

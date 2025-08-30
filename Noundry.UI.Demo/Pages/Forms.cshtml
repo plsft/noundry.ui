@@ -62,6 +62,19 @@
                 <noundry-option value="maintenance">Maintenance</noundry-option>
             </noundry-select>
             
+            <noundry-multi-select asp-for="ContactForm.TeamMembers" 
+                                 label="Team Members"
+                                 placeholder="Select team members"
+                                 help-text="Choose team members for this project"
+                                 show-remove-buttons="true"
+                                 color="green">
+                <noundry-multi-select-option value="john" id="1">John Smith</noundry-multi-select-option>
+                <noundry-multi-select-option value="jane" id="2">Jane Doe</noundry-multi-select-option>
+                <noundry-multi-select-option value="bob" id="3">Bob Johnson</noundry-multi-select-option>
+                <noundry-multi-select-option value="alice" id="4">Alice Williams</noundry-multi-select-option>
+                <noundry-multi-select-option value="charlie" id="5">Charlie Brown</noundry-multi-select-option>
+            </noundry-multi-select>
+            
             <noundry-textarea asp-for="ContactForm.Message" 
                              rows="4" 
                              placeholder="Tell us about your project..." 
@@ -130,6 +143,14 @@
                         <noundry-option value="1">Option 1</noundry-option>
                         <noundry-option value="2">Option 2</noundry-option>
                     </noundry-select>
+                    <noundry-multi-select label="Multi-Select" 
+                                         placeholder="Choose multiple options"
+                                         color="blue"
+                                         display-style="tags">
+                        <noundry-multi-select-option value="opt1">Option 1</noundry-multi-select-option>
+                        <noundry-multi-select-option value="opt2">Option 2</noundry-multi-select-option>
+                        <noundry-multi-select-option value="opt3">Option 3</noundry-multi-select-option>
+                    </noundry-multi-select>
                 </div>
             </div>
             

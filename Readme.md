@@ -10,7 +10,7 @@ A modern C# ASP.NET TagHelper library that provides server-side components with 
 
 ## ✨ Features
 
-- **🎯 54 UI Components** - Complete set of interactive components
+- **🎯 56 UI Components** - Complete set of interactive components
 - **🔗 Full Model Binding** - Seamless ASP.NET model binding support  
 - **♿ Accessibility Ready** - ARIA attributes and keyboard navigation
 - **🎨 Tailwind CSS Integration** - Beautiful, consistent styling
@@ -84,7 +84,7 @@ builder.Services.AddNoundryUI(options =>
 - **Progress** - Progress bars with animation
 - **Rating** - Interactive star rating system
 
-### Form Controls (13 TagHelpers)
+### Form Controls (15 TagHelpers)
 - **Button** - Interactive buttons with loading states
 - **Text Input** - Text fields with validation support
 - **Textarea** - Multi-line text inputs with auto-resize
@@ -95,6 +95,7 @@ builder.Services.AddNoundryUI(options =>
 - **Date Range Picker** - Advanced date range selection with quick presets
 - **Select** - Advanced dropdown with search capability (2 TagHelpers)
 - **Combobox** - Searchable combo box selection (2 TagHelpers)
+- **Multi-Select** - Advanced multi-selection with API support (2 TagHelpers)
 
 ### Overlays & Modals (8 TagHelpers)
 - **Modal** - Dialog windows with backdrop
@@ -123,6 +124,11 @@ builder.Services.AddNoundryUI(options =>
 <form asp-action="Submit">
     <noundry-text-input asp-for="Name" label="Full Name" />
     <noundry-switch asp-for="Subscribe" label="Subscribe to Newsletter" />
+    <noundry-multi-select asp-for="Skills" label="Skills" color="green">
+        <noundry-multi-select-option value="csharp">C#</noundry-multi-select-option>
+        <noundry-multi-select-option value="javascript">JavaScript</noundry-multi-select-option>
+        <noundry-multi-select-option value="python">Python</noundry-multi-select-option>
+    </noundry-multi-select>
     <noundry-button type="submit" variant="primary">Submit</noundry-button>
 </form>
 ```

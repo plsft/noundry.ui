@@ -11,7 +11,8 @@
       "Bash(gh repo view:*)",
       "Bash(git commit:*)",
       "Bash(timeout:*)",
-      "Read(/C:\\Temp/**)"
+      "Read(/C:\\Temp/**)",
+      "Read(/C:\\temp/**)"
     ],
     "deny": [],
     "ask": []
