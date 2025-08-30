@@ -242,7 +242,13 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## 🙏 Acknowledgments
 
-- Built with inspiration from the excellent PinesUI component library
+This project is based on and inspired by the excellent [Pines UI Library](https://devdojo.com/pines) by DevDojo. We thank the original authors for creating such a comprehensive and well-designed component library that served as the foundation for this ASP.NET TagHelper implementation.
+
+**Original Pines UI Library**: https://github.com/thedevdojo/pines  
+**Original Authors**: DevDojo Team  
+**License**: MIT License
+
+Additional thanks to:
 - Powered by [Alpine.js](https://alpinejs.dev/) for lightweight interactivity
 - Styled with [Tailwind CSS](https://tailwindcss.com/) for beautiful design
 - Built for [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) developers
