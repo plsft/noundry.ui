@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Noundry UI Demo</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js Plugins -->
+    <script defer src="https://unpkg.com/@@alpinejs/collapse@@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@@alpinejs/focus@@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@@3.x.x/dist/cdn.min.js"></script>
+    
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">Noundry UI Demo</h1>
+                </div>
+                <nav class="flex space-x-8">
+                    <a href="@Url.Action("Index", "Home")" class="text-gray-900 hover:text-gray-600">Home</a>
+                    <a href="@Url.Action("Privacy", "Home")" class="text-gray-900 hover:text-gray-600">Privacy</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        @if (TempData["Success"] != null)
+        {
+            <noundry-alert type="success" dismissible="true" title="Success">
+                @TempData["Success"]
+            </noundry-alert>
+        }
+        
+        @RenderBody()
+    </main>
+
+    <footer class="bg-white border-t mt-auto">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-500 text-sm">
+                &copy; @DateTime.Now.Year - Noundry UI Demo. Built with ❤️ using Noundry UI.
+            </p>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
