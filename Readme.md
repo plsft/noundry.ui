@@ -10,7 +10,7 @@ A modern C# ASP.NET TagHelper library that provides server-side components with 
 
 ## ✨ Features
 
-- **🎯 44 UI Components** - Complete set of interactive components
+- **🎯 48 UI Components** - Complete set of interactive components
 - **🔗 Full Model Binding** - Seamless ASP.NET model binding support  
 - **♿ Accessibility Ready** - ARIA attributes and keyboard navigation
 - **🎨 Tailwind CSS Integration** - Beautiful, consistent styling
@@ -101,11 +101,12 @@ builder.Services.AddNoundryUI(options =>
 - **Tooltip** - Hover information display
 - **Popover** - Click-activated content overlay
 
-### Data Display (8 components)
+### Data Display (12 components)
 - **Card** - Content containers with header/body/footer
 - **Table** - Data tables with sorting and responsive design
 - **Pagination** - Page navigation with ranges
 - **Copy to Clipboard** - Text copy functionality
+- **Skeleton** - Loading state placeholders with animations
 
 ## 🎯 Examples
 
@@ -137,6 +138,27 @@ builder.Services.AddNoundryUI(options =>
         <noundry-date-picker label="Birth Date" />
     </div>
 </noundry-modal>
+```
+
+### Skeleton Loading States
+```html
+<!-- Basic skeleton -->
+<noundry-skeleton variant="text" height="h-6" width="w-3/4" />
+
+<!-- Avatar skeleton -->
+<noundry-skeleton variant="avatar" size="lg" />
+
+<!-- Card skeleton with multiple elements -->
+<noundry-skeleton-card show-image="true" show-avatar="true" text-lines="3" />
+
+<!-- Multi-line text skeleton -->
+<noundry-skeleton-text lines="4" variable-width="true" />
+
+<!-- Custom skeleton container -->
+<noundry-skeleton-container container-class="flex items-center space-x-3">
+    <noundry-skeleton variant="circle" width="3rem" height="h-12" />
+    <noundry-skeleton variant="text" height="h-5" />
+</noundry-skeleton-container>
 ```
 
 ## 🏗️ Project Structure

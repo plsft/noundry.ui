@@ -395,6 +395,52 @@ Components automatically integrate with ASP.NET model validation:
 <span asp-validation-for="Email" class="text-red-500 text-sm"></span>
 ```
 
+### Skeleton
+Loading state placeholders with animations.
+
+```html
+<!-- Basic skeleton -->
+<noundry-skeleton variant="text" height="h-6" width="w-3/4" />
+
+<!-- Avatar skeleton -->
+<noundry-skeleton variant="avatar" size="lg" />
+
+<!-- Circle skeleton -->
+<noundry-skeleton variant="circle" width="4rem" height="h-16" />
+
+<!-- Rectangle skeleton -->
+<noundry-skeleton variant="rectangle" height="h-32" width="w-full" />
+
+<!-- Multiple skeleton lines -->
+<noundry-skeleton variant="text" lines="3" variable-width="true" />
+
+<!-- Skeleton text component -->
+<noundry-skeleton-text lines="4" variable-width="true" line-height="h-4" />
+
+<!-- Avatar skeleton with sizes -->
+<noundry-skeleton-avatar size="sm" />
+<noundry-skeleton-avatar size="md" />
+<noundry-skeleton-avatar size="lg" />
+<noundry-skeleton-avatar size="xl" />
+
+<!-- Card skeleton -->
+<noundry-skeleton-card show-image="true" show-avatar="true" text-lines="3" />
+
+<!-- Custom skeleton container -->
+<noundry-skeleton-container container-class="flex items-center space-x-3" loading="true">
+    <noundry-skeleton variant="avatar" size="md" />
+    <div class="flex-1 space-y-2">
+        <noundry-skeleton variant="text" height="h-5" width="w-3/4" />
+        <noundry-skeleton variant="text" height="h-4" width="w-1/2" />
+    </div>
+</noundry-skeleton-container>
+
+<!-- Conditional loading -->
+<noundry-skeleton-container loading="@Model.IsLoading">
+    <noundry-skeleton-text lines="3" />
+</noundry-skeleton-container>
+```
+
 ### Alpine.js Integration
 All interactive components use Alpine.js for client-side behavior. You can extend functionality by adding custom Alpine.js directives:
 

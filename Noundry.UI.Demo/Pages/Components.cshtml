@@ -216,6 +216,63 @@
         </div>
     </div>
 
+    <!-- Skeleton Loading States -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Skeleton Loading States</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div>
+                <h3 class="font-medium mb-3">Basic Skeletons</h3>
+                <noundry-skeleton-container>
+                    <noundry-skeleton variant="text" height="h-6" width="w-3/4" />
+                    <noundry-skeleton variant="text" height="h-4" />
+                    <noundry-skeleton variant="text" height="h-4" width="w-5/6" />
+                </noundry-skeleton-container>
+            </div>
+            
+            <div>
+                <h3 class="font-medium mb-3">Avatar & Profile</h3>
+                <noundry-skeleton-container container-class="flex items-center space-x-3">
+                    <noundry-skeleton variant="avatar" size="lg" />
+                    <div class="flex-1 space-y-2">
+                        <noundry-skeleton variant="text" height="h-5" width="w-3/4" />
+                        <noundry-skeleton variant="text" height="h-4" width="w-1/2" />
+                    </div>
+                </noundry-skeleton-container>
+            </div>
+            
+            <div>
+                <h3 class="font-medium mb-3">Card Layout</h3>
+                <noundry-skeleton-card show-image="true" show-avatar="true" text-lines="3" />
+            </div>
+        </div>
+        
+        <div class="mt-6">
+            <h3 class="font-medium mb-3">Multi-line Text</h3>
+            <noundry-skeleton-text lines="4" variable-width="true" />
+        </div>
+        
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h3 class="font-medium mb-3">Circle Variants</h3>
+                <div class="flex items-center space-x-4">
+                    <noundry-skeleton variant="circle" width="3rem" height="h-12" />
+                    <noundry-skeleton variant="circle" width="4rem" height="h-16" />
+                    <noundry-skeleton variant="circle" width="5rem" height="h-20" />
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="font-medium mb-3">Custom Dimensions</h3>
+                <noundry-skeleton-container>
+                    <noundry-skeleton variant="rectangle" height="h-32" width="w-full" />
+                    <noundry-skeleton variant="text" height="h-6" width="w-2/3" />
+                    <noundry-skeleton variant="text" height="h-4" width="w-4/5" />
+                </noundry-skeleton-container>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notifications -->
     <div class="bg-white p-6 rounded-lg shadow">
         <h2 class="text-xl font-semibold mb-4">Toast Notifications</h2>
