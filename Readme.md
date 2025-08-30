@@ -10,7 +10,7 @@ A modern C# ASP.NET TagHelper library that provides server-side components with 
 
 ## ✨ Features
 
-- **🎯 12+ UI Components** - Complete set of interactive components
+- **🎯 44 UI Components** - Complete set of interactive components
 - **🔗 Full Model Binding** - Seamless ASP.NET model binding support  
 - **♿ Accessibility Ready** - ARIA attributes and keyboard navigation
 - **🎨 Tailwind CSS Integration** - Beautiful, consistent styling
@@ -68,27 +68,44 @@ builder.Services.AddNoundryUI(options =>
 
 ## 📦 Available Components
 
-### Layout & Navigation
+### Layout & Navigation (9 components)
 - **Accordion** - Collapsible content sections
 - **Tabs** - Tab-based content switching  
 - **Dropdown Menu** - Context menus and user menus
+- **Breadcrumbs** - Navigation path components
+- **Context Menu** - Right-click context menus
+- **Command** - Advanced command palette with search
 
-### Feedback & Status
+### Feedback & Status (8 components)
 - **Alert** - Notification messages with dismiss functionality
 - **Badge** - Status indicators and labels
 - **Toast** - Temporary notification messages
+- **Banner** - Dismissible notification banners
+- **Progress** - Progress bars with animation
+- **Rating** - Interactive star rating system
 
-### Form Controls  
+### Form Controls (12 components)
 - **Button** - Interactive buttons with loading states
 - **Text Input** - Text fields with validation support
+- **Textarea** - Multi-line text inputs with auto-resize
 - **Switch** - Toggle controls for boolean values
+- **Checkbox** - Checkbox controls with model binding
+- **Radio Group** - Radio button groups with validation
 - **Date Picker** - Calendar-based date selection
-- **Select** - Dropdown selection with search capability
+- **Select** - Advanced dropdown with search capability
+- **Combobox** - Searchable combo box selection
 
-### Overlays & Modals
+### Overlays & Modals (7 components)
 - **Modal** - Dialog windows with backdrop
+- **Slide Over** - Side panel overlays
 - **Tooltip** - Hover information display
 - **Popover** - Click-activated content overlay
+
+### Data Display (8 components)
+- **Card** - Content containers with header/body/footer
+- **Table** - Data tables with sorting and responsive design
+- **Pagination** - Page navigation with ranges
+- **Copy to Clipboard** - Text copy functionality
 
 ## 🎯 Examples
 
