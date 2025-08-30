@@ -1,0 +1,158 @@
+@page
+@model FormsModel
+@{
+    ViewData["Title"] = "Forms";
+}
+
+<div class="space-y-8">
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Form Components</h1>
+        <p class="text-gray-600 mb-6">
+            Comprehensive form components with full ASP.NET model binding support and validation integration.
+        </p>
+    </div>
+
+    <!-- Complete Form Example -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-6">Complete Form Example</h2>
+        
+        <form method="post" class="space-y-6 max-w-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <noundry-text-input asp-for="ContactForm.FirstName" 
+                                   icon="user" 
+                                   placeholder="Enter your first name" />
+                
+                <noundry-text-input asp-for="ContactForm.LastName" 
+                                   placeholder="Enter your last name" />
+            </div>
+            
+            <noundry-text-input asp-for="ContactForm.Email" 
+                               type="email" 
+                               placeholder="your.email@example.com" />
+            
+            <noundry-text-input asp-for="ContactForm.Phone" 
+                               type="tel" 
+                               placeholder="+1 (555) 123-4567" />
+            
+            <noundry-date-picker asp-for="ContactForm.PreferredContactDate" 
+                                placeholder="Select preferred contact date" />
+            
+            <noundry-select asp-for="ContactForm.Department" placeholder="Select department">
+                <noundry-option value="">-- Select Department --</noundry-option>
+                <noundry-option value="sales">Sales</noundry-option>
+                <noundry-option value="support">Technical Support</noundry-option>
+                <noundry-option value="billing">Billing</noundry-option>
+                <noundry-option value="general">General Inquiry</noundry-option>
+            </noundry-select>
+            
+            <noundry-select asp-for="ContactForm.InterestedServices" 
+                           multiple="true" 
+                           placeholder="Select services of interest">
+                <noundry-option value="consulting">Consulting</noundry-option>
+                <noundry-option value="development">Development</noundry-option>
+                <noundry-option value="design">Design</noundry-option>
+                <noundry-option value="maintenance">Maintenance</noundry-option>
+            </noundry-select>
+            
+            <noundry-textarea asp-for="ContactForm.Message" 
+                             rows="4" 
+                             placeholder="Tell us about your project..." 
+                             max-length="500"
+                             show-character-count="true" />
+            
+            <div class="space-y-4">
+                <noundry-switch asp-for="ContactForm.SubscribeToNewsletter" />
+                
+                <noundry-checkbox asp-for="ContactForm.AgreeToTerms" 
+                                 label="I agree to the terms and conditions"
+                                 required="true" />
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Preferred Contact Method</label>
+                    <noundry-radio-group asp-for="ContactForm.PreferredContactMethod" direction="horizontal">
+                        <noundry-radio value="email" label="Email" />
+                        <noundry-radio value="phone" label="Phone" />
+                        <noundry-radio value="sms" label="SMS" />
+                    </noundry-radio-group>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Rate Our Service</label>
+                    <noundry-rating asp-for="ContactForm.ServiceRating" 
+                                   max-stars="5" 
+                                   show-feedback="true" />
+                </div>
+            </div>
+            
+            <div class="flex gap-4 pt-4">
+                <noundry-button type="submit" variant="primary" loading="@Model.IsProcessing" loading-text="Submitting...">
+                    Submit Form
+                </noundry-button>
+                <noundry-button type="button" variant="secondary">
+                    Save Draft
+                </noundry-button>
+                <noundry-button type="reset" variant="danger" css-class="ml-auto">
+                    Reset Form
+                </noundry-button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Form Controls Gallery -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-6">Form Controls Gallery</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div>
+                <h3 class="font-medium mb-3">Text Inputs</h3>
+                <div class="space-y-3">
+                    <noundry-text-input label="Standard Input" placeholder="Enter text" />
+                    <noundry-text-input label="With Icon" icon="search" placeholder="Search..." />
+                    <noundry-text-input label="Email Input" type="email" placeholder="user@example.com" />
+                    <noundry-text-input label="Password" type="password" placeholder="Password" />
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="font-medium mb-3">Selection Controls</h3>
+                <div class="space-y-3">
+                    <noundry-switch label="Enable Feature" checked="true" />
+                    <noundry-checkbox label="I agree to terms" />
+                    <noundry-select placeholder="Choose option">
+                        <noundry-option value="1">Option 1</noundry-option>
+                        <noundry-option value="2">Option 2</noundry-option>
+                    </noundry-select>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="font-medium mb-3">Advanced Controls</h3>
+                <div class="space-y-3">
+                    <noundry-date-picker label="Select Date" placeholder="Pick a date" />
+                    <noundry-textarea label="Comments" placeholder="Enter your comments..." rows="3" />
+                    <noundry-progress value="60" label="Progress" show-percentage="true" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Command Palette -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Command Palette</h2>
+        <p class="text-gray-600 mb-4">Try typing to search commands. Use arrow keys and Enter to navigate.</p>
+        
+        <noundry-command placeholder="Search commands...">
+            <noundry-command-group name="suggestions">
+                <noundry-command-item title="Calendar" value="calendar" icon="calendar" />
+                <noundry-command-item title="Calculator" value="calculator" icon="calculator" />
+                <noundry-command-item title="Search" value="search" icon="search" />
+            </noundry-command-group>
+            
+            <noundry-command-group name="settings">
+                <noundry-command-item title="Profile" value="profile" icon="user" shortcut="⌘P" />
+                <noundry-command-item title="Settings" value="settings" icon="settings" shortcut="⌘S" />
+                <noundry-command-item title="Preferences" value="preferences" icon="preferences" shortcut="⌘," />
+            </noundry-command-group>
+        </noundry-command>
+    </div>
+</div>

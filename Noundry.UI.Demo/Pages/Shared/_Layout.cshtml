@@ -19,26 +19,35 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 min-h-screen flex flex-col">
     <header class="bg-white shadow-sm border-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-gray-900">Noundry UI Demo</h1>
+                    <a href="/" class="text-xl font-bold text-gray-900 hover:text-gray-700">Noundry UI Demo</a>
                 </div>
                 <nav class="flex space-x-8">
-                    <a href="@Url.Action("Index", "Home")" class="text-gray-900 hover:text-gray-600">Home</a>
-                    <a href="@Url.Action("Privacy", "Home")" class="text-gray-900 hover:text-gray-600">Privacy</a>
+                    <a href="/" class="text-gray-900 hover:text-gray-600 @(ViewContext.RouteData.Values["page"]?.ToString() == "/Index" ? "font-semibold" : "")">Home</a>
+                    <a href="/Components" class="text-gray-900 hover:text-gray-600 @(ViewContext.RouteData.Values["page"]?.ToString() == "/Components" ? "font-semibold" : "")">Components</a>
+                    <a href="/Forms" class="text-gray-900 hover:text-gray-600 @(ViewContext.RouteData.Values["page"]?.ToString() == "/Forms" ? "font-semibold" : "")">Forms</a>
+                    <a href="/Privacy" class="text-gray-900 hover:text-gray-600 @(ViewContext.RouteData.Values["page"]?.ToString() == "/Privacy" ? "font-semibold" : "")">Privacy</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <main class="flex-1 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 w-full">
         @if (TempData["Success"] != null)
         {
-            <noundry-alert type="success" dismissible="true" title="Success">
+            <noundry-alert type="success" dismissible="true" title="Success" css-class="mb-6">
                 @TempData["Success"]
+            </noundry-alert>
+        }
+        
+        @if (TempData["Error"] != null)
+        {
+            <noundry-alert type="error" dismissible="true" title="Error" css-class="mb-6">
+                @TempData["Error"]
             </noundry-alert>
         }
         

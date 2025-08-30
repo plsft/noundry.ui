@@ -1,0 +1,114 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="space-y-8">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-4xl font-bold mb-4">Welcome to Noundry UI</h1>
+        <p class="text-xl mb-6 opacity-90">
+            A modern C# ASP.NET TagHelper library with Alpine.js and Tailwind CSS integration
+        </p>
+        <div class="flex gap-4">
+            <noundry-button variant="secondary" css-class="bg-white text-blue-600 hover:bg-gray-100">
+                Get Started
+            </noundry-button>
+            <noundry-button variant="primary" css-class="bg-blue-800 hover:bg-blue-900">
+                View Components
+            </noundry-button>
+        </div>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <noundry-card title="Easy Setup" description="Get started in minutes with simple configuration">
+            <noundry-badge variant="success" icon="check">Ready to Use</noundry-badge>
+        </noundry-card>
+        
+        <noundry-card title="25+ Components" description="Complete set of interactive UI components">
+            <noundry-badge variant="info" icon="star">Feature Rich</noundry-badge>
+        </noundry-card>
+        
+        <noundry-card title="Model Binding" description="Seamless ASP.NET Core integration">
+            <noundry-badge variant="warning" icon="settings">Powerful</noundry-badge>
+        </noundry-card>
+    </div>
+
+    <!-- Sample Components Demo -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Sample Components</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Alerts -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Alerts & Notifications</h3>
+                <div class="space-y-4">
+                    <noundry-alert type="info" title="Information">
+                        This is an informational alert message.
+                    </noundry-alert>
+                    
+                    <noundry-alert type="success" dismissible="true">
+                        This is a dismissible success alert.
+                    </noundry-alert>
+                </div>
+            </div>
+
+            <!-- Interactive Elements -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Interactive Elements</h3>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <noundry-button variant="primary">Primary</noundry-button>
+                        <noundry-button variant="secondary">Secondary</noundry-button>
+                    </div>
+                    
+                    <noundry-modal title="Sample Modal" button-text="Open Modal">
+                        <p class="mb-4">This is a sample modal dialog.</p>
+                        <noundry-button variant="primary">Action</noundry-button>
+                    </noundry-modal>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Preview -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Form Components Preview</h2>
+        
+        <form method="post" class="space-y-6 max-w-md">
+            <noundry-text-input label="Full Name" placeholder="Enter your name" icon="user" />
+            <noundry-text-input type="email" label="Email" placeholder="your.email@example.com" />
+            <noundry-switch label="Enable Notifications" />
+            <noundry-select placeholder="Choose an option">
+                <noundry-option value="1">Option 1</noundry-option>
+                <noundry-option value="2">Option 2</noundry-option>
+                <noundry-option value="3">Option 3</noundry-option>
+            </noundry-select>
+            
+            <div class="flex gap-4">
+                <noundry-button type="submit" variant="primary">Submit</noundry-button>
+                <noundry-button type="button" variant="secondary">Reset</noundry-button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Rating Demo -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Rating Component</h2>
+        <noundry-rating label="Rate this demo" max-stars="5" show-feedback="true" />
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="text-center">
+        <div class="flex justify-center gap-4">
+            <a href="/Components" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                Explore All Components
+            </a>
+            <a href="/Forms" class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                Form Examples
+            </a>
+        </div>
+    </div>
+</div>

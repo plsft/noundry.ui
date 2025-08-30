@@ -1,0 +1,55 @@
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="max-w-2xl mx-auto space-y-6">
+    <div class="bg-white p-8 rounded-lg shadow text-center">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 mb-4">
+            <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+            </svg>
+        </div>
+        
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Oops! Something went wrong</h1>
+        <p class="text-gray-600 mb-6">
+            We encountered an unexpected error while processing your request.
+        </p>
+        
+        @if (Model.ShowRequestId)
+        {
+            <noundry-alert type="error" title="Error Details" css-class="text-left mb-6">
+                <strong>Request ID:</strong> @Model.RequestId
+            </noundry-alert>
+        }
+        
+        <div class="flex justify-center gap-4">
+            <noundry-button onclick="window.location.href='/'" variant="primary">
+                Return Home
+            </noundry-button>
+            <noundry-button onclick="window.history.back()" variant="secondary">
+                Go Back
+            </noundry-button>
+        </div>
+    </div>
+    
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Need Help?</h2>
+        <p class="text-gray-600 mb-4">
+            If you continue to experience issues, please try the following:
+        </p>
+        
+        <noundry-accordion>
+            <noundry-accordion-item title="Clear Browser Cache">
+                Try refreshing the page or clearing your browser cache and cookies.
+            </noundry-accordion-item>
+            <noundry-accordion-item title="Check Your Connection">
+                Ensure you have a stable internet connection and try again.
+            </noundry-accordion-item>
+            <noundry-accordion-item title="Contact Support">
+                If the problem persists, please contact our support team with the error details above.
+            </noundry-accordion-item>
+        </noundry-accordion>
+    </div>
+</div>

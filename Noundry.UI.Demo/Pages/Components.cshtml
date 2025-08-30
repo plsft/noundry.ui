@@ -1,0 +1,240 @@
+@page
+@model ComponentsModel
+@{
+    ViewData["Title"] = "Components";
+}
+
+<div class="space-y-8">
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Noundry UI Components</h1>
+        <p class="text-gray-600 mb-6">
+            Explore all available components in the Noundry UI library. Each component showcases different features and customization options.
+        </p>
+    </div>
+
+    <!-- Alerts & Banners -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Alerts & Banners</h2>
+        <div class="space-y-4">
+            <noundry-alert type="info" title="Information" show-icon="true">
+                This is an informational alert with an icon.
+            </noundry-alert>
+            
+            <noundry-alert type="success" dismissible="true" title="Success">
+                This is a dismissible success alert.
+            </noundry-alert>
+            
+            <noundry-alert type="warning" title="Warning">
+                This is a warning alert message.
+            </noundry-alert>
+            
+            <noundry-alert type="error" dismissible="true" title="Error">
+                This is a dismissible error alert.
+            </noundry-alert>
+
+            <noundry-banner type="info" title="Welcome!" description="This is a banner notification" dismissible="true" />
+        </div>
+    </div>
+
+    <!-- Buttons & Badges -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Buttons & Badges</h2>
+        
+        <div class="mb-6">
+            <h3 class="text-lg font-medium mb-3">Buttons</h3>
+            <div class="flex flex-wrap gap-4 mb-4">
+                <noundry-button variant="primary">Primary</noundry-button>
+                <noundry-button variant="secondary">Secondary</noundry-button>
+                <noundry-button variant="success">Success</noundry-button>
+                <noundry-button variant="warning">Warning</noundry-button>
+                <noundry-button variant="danger">Danger</noundry-button>
+                <noundry-button disabled="true">Disabled</noundry-button>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <noundry-button size="sm">Small</noundry-button>
+                <noundry-button size="md">Medium</noundry-button>
+                <noundry-button size="lg">Large</noundry-button>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-lg font-medium mb-3">Badges</h3>
+            <div class="flex flex-wrap gap-4 items-center">
+                <noundry-badge variant="default">Default</noundry-badge>
+                <noundry-badge variant="success">Success</noundry-badge>
+                <noundry-badge variant="warning">Warning</noundry-badge>
+                <noundry-badge variant="error">Error</noundry-badge>
+                <noundry-badge variant="info" outline="true">Info Outline</noundry-badge>
+                <noundry-badge variant="success" pill="true" icon="check">Success Pill</noundry-badge>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Components -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Navigation</h2>
+        
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-medium mb-3">Breadcrumbs</h3>
+                <noundry-breadcrumbs>
+                    <noundry-breadcrumb-item text="Home" href="/" />
+                    <noundry-breadcrumb-item text="Components" href="/components" />
+                    <noundry-breadcrumb-item text="Navigation" current="true" />
+                </noundry-breadcrumbs>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium mb-3">Tabs</h3>
+                <noundry-tabs>
+                    <noundry-tab-item title="Overview" active="true">
+                        <div class="p-4 border rounded-lg">
+                            <h4 class="font-semibold mb-2">Component Overview</h4>
+                            <p>This tab shows an overview of the component features.</p>
+                        </div>
+                    </noundry-tab-item>
+                    <noundry-tab-item title="Configuration">
+                        <div class="p-4 border rounded-lg">
+                            <h4 class="font-semibold mb-2">Configuration Options</h4>
+                            <p>Here you can configure component settings.</p>
+                        </div>
+                    </noundry-tab-item>
+                    <noundry-tab-item title="Advanced">
+                        <div class="p-4 border rounded-lg">
+                            <h4 class="font-semibold mb-2">Advanced Features</h4>
+                            <p>Advanced configuration and customization options.</p>
+                        </div>
+                    </noundry-tab-item>
+                </noundry-tabs>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium mb-3">Accordion</h3>
+                <noundry-accordion>
+                    <noundry-accordion-item title="What is Noundry UI?">
+                        Noundry UI is a modern C# ASP.NET TagHelper library that provides server-side components with Alpine.js and Tailwind CSS integration.
+                    </noundry-accordion-item>
+                    <noundry-accordion-item title="How do I use it?">
+                        Simply add the NuGet package, include Alpine.js and Tailwind CSS, then use the noundry-* tags in your Razor views.
+                    </noundry-accordion-item>
+                    <noundry-accordion-item title="What components are available?">
+                        The library includes 25+ components including buttons, modals, alerts, forms, navigation, and data display components.
+                    </noundry-accordion-item>
+                </noundry-accordion>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Components -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Interactive Components</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h3 class="text-lg font-medium mb-3">Modals & Overlays</h3>
+                <div class="space-y-4">
+                    <noundry-modal title="Sample Modal" button-text="Open Modal">
+                        <p class="mb-4">This is a sample modal with some content.</p>
+                        <noundry-button variant="primary">Action</noundry-button>
+                    </noundry-modal>
+                    
+                    <noundry-slide-over title="Slide Over Panel" button-text="Open Slide Over">
+                        <p class="mb-4">This is a slide over panel that comes from the side.</p>
+                        <noundry-text-input label="Sample Input" placeholder="Enter some text" />
+                    </noundry-slide-over>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium mb-3">Dropdowns & Menus</h3>
+                <div class="space-y-4">
+                    <noundry-dropdown-menu button-text="User Menu" 
+                                          user-name="John Doe" 
+                                          user-subtitle="john@example.com">
+                        <noundry-dropdown-item text="Profile" icon="user" />
+                        <noundry-dropdown-item text="Settings" icon="settings" shortcut="⌘S" />
+                        <noundry-dropdown-item is-separator="true" />
+                        <noundry-dropdown-item text="Sign Out" />
+                    </noundry-dropdown-menu>
+                    
+                    <noundry-context-menu trigger-text="Right click for context menu">
+                        <noundry-context-menu-item text="Copy" icon="copy" shortcut="⌘C" />
+                        <noundry-context-menu-item text="Paste" icon="paste" shortcut="⌘V" />
+                        <noundry-context-menu-item is-separator="true" />
+                        <noundry-context-menu-item text="Delete" icon="trash" />
+                    </noundry-context-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Display -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Data Display</h2>
+        
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-medium mb-3">Progress & Rating</h3>
+                <div class="space-y-4">
+                    <noundry-progress value="75" label="Upload Progress" show-percentage="true" />
+                    <noundry-rating label="Rate this component" max-stars="5" show-feedback="true" />
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium mb-3">Data Table</h3>
+                <noundry-table striped="true" hoverable="true">
+                    <noundry-table-head>
+                        <noundry-table-row>
+                            <noundry-table-header sortable="true">Name</noundry-table-header>
+                            <noundry-table-header sortable="true">Email</noundry-table-header>
+                            <noundry-table-header>Role</noundry-table-header>
+                            <noundry-table-header>Actions</noundry-table-header>
+                        </noundry-table-row>
+                    </noundry-table-head>
+                    <noundry-table-body>
+                        <noundry-table-row>
+                            <noundry-table-cell>John Doe</noundry-table-cell>
+                            <noundry-table-cell>john@example.com</noundry-table-cell>
+                            <noundry-table-cell><noundry-badge variant="success">Admin</noundry-badge></noundry-table-cell>
+                            <noundry-table-cell>
+                                <noundry-button size="sm" variant="secondary">Edit</noundry-button>
+                            </noundry-table-cell>
+                        </noundry-table-row>
+                        <noundry-table-row>
+                            <noundry-table-cell>Jane Smith</noundry-table-cell>
+                            <noundry-table-cell>jane@example.com</noundry-table-cell>
+                            <noundry-table-cell><noundry-badge variant="info">User</noundry-badge></noundry-table-cell>
+                            <noundry-table-cell>
+                                <noundry-button size="sm" variant="secondary">Edit</noundry-button>
+                            </noundry-table-cell>
+                        </noundry-table-row>
+                    </noundry-table-body>
+                </noundry-table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Toast Notifications</h2>
+        <div class="flex gap-4">
+            <noundry-toast type="info" title="Info" trigger-text="Show Info">
+                This is an informational toast.
+            </noundry-toast>
+            
+            <noundry-toast type="success" title="Success" trigger-text="Show Success">
+                Action completed successfully!
+            </noundry-toast>
+            
+            <noundry-toast type="warning" title="Warning" trigger-text="Show Warning">
+                Please be aware of this warning.
+            </noundry-toast>
+            
+            <noundry-toast type="error" title="Error" trigger-text="Show Error">
+                An error occurred.
+            </noundry-toast>
+        </div>
+    </div>
+</div>

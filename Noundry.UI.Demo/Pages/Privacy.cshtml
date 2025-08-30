@@ -1,0 +1,130 @@
+@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="max-w-4xl mx-auto space-y-8">
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
+        <p class="text-gray-600">
+            This privacy policy explains how we collect, use, and protect your information when using the Noundry UI Demo application.
+        </p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Information We Collect</h2>
+        
+        <noundry-accordion>
+            <noundry-accordion-item title="Personal Information">
+                <p class="text-gray-600">
+                    We may collect personal information such as your name, email address, and other contact details 
+                    when you voluntarily provide them through our demo forms.
+                </p>
+            </noundry-accordion-item>
+            
+            <noundry-accordion-item title="Usage Data">
+                <p class="text-gray-600">
+                    We collect information about how you interact with our demo application, including pages visited, 
+                    features used, and time spent on the site.
+                </p>
+            </noundry-accordion-item>
+            
+            <noundry-accordion-item title="Technical Information">
+                <p class="text-gray-600">
+                    We automatically collect certain technical information such as your IP address, browser type, 
+                    device information, and operating system.
+                </p>
+            </noundry-accordion-item>
+        </noundry-accordion>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">How We Use Your Information</h2>
+        
+        <div class="space-y-4">
+            <noundry-alert type="info" title="Demo Purpose">
+                This is a demonstration application. Any data entered is used solely for showcasing 
+                the Noundry UI components and is not stored permanently.
+            </noundry-alert>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <noundry-card title="Improve User Experience">
+                    We use collected data to enhance the demo experience and improve our components.
+                </noundry-card>
+                
+                <noundry-card title="Technical Support">
+                    Usage data helps us identify and fix issues with the component library.
+                </noundry-card>
+                
+                <noundry-card title="Development">
+                    Feedback and usage patterns inform future component development.
+                </noundry-card>
+                
+                <noundry-card title="Security">
+                    We monitor for security threats and protect against malicious usage.
+                </noundry-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Your Rights</h2>
+        
+        <noundry-table bordered="true">
+            <noundry-table-head>
+                <noundry-table-row>
+                    <noundry-table-header>Right</noundry-table-header>
+                    <noundry-table-header>Description</noundry-table-header>
+                    <noundry-table-header>How to Exercise</noundry-table-header>
+                </noundry-table-row>
+            </noundry-table-head>
+            <noundry-table-body>
+                <noundry-table-row>
+                    <noundry-table-cell>Access</noundry-table-cell>
+                    <noundry-table-cell>Request copies of your personal information</noundry-table-cell>
+                    <noundry-table-cell>Contact us via email</noundry-table-cell>
+                </noundry-table-row>
+                <noundry-table-row>
+                    <noundry-table-cell>Rectification</noundry-table-cell>
+                    <noundry-table-cell>Request correction of inaccurate information</noundry-table-cell>
+                    <noundry-table-cell>Submit correction request</noundry-table-cell>
+                </noundry-table-row>
+                <noundry-table-row>
+                    <noundry-table-cell>Erasure</noundry-table-cell>
+                    <noundry-table-cell>Request deletion of your personal information</noundry-table-cell>
+                    <noundry-table-cell>Send deletion request</noundry-table-cell>
+                </noundry-table-row>
+                <noundry-table-row>
+                    <noundry-table-cell>Portability</noundry-table-cell>
+                    <noundry-table-cell>Request transfer of your data</noundry-table-cell>
+                    <noundry-table-cell>Contact our support team</noundry-table-cell>
+                </noundry-table-row>
+            </noundry-table-body>
+        </noundry-table>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Contact Us</h2>
+        
+        <p class="text-gray-600 mb-4">
+            If you have any questions about this privacy policy or our data practices, please contact us:
+        </p>
+        
+        <div class="space-y-2">
+            <p class="text-sm text-gray-700">
+                <strong>Email:</strong> privacy@noundry.com
+            </p>
+            <p class="text-sm text-gray-700">
+                <strong>Address:</strong> Noundry UI Team, Privacy Department
+            </p>
+        </div>
+        
+        <div class="mt-6">
+            <noundry-banner type="info" 
+                           title="Last Updated" 
+                           description="This privacy policy was last updated on @DateTime.Now.ToString("MMMM dd, yyyy")" 
+                           dismissible="false" />
+        </div>
+    </div>
+</div>
