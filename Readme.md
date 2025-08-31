@@ -205,6 +205,18 @@ builder.Services.AddNoundryUI(options =>
     <noundry-data-table-column key="role" label="Role" sortable="false" />
 </noundry-data-table>
 
+<!-- Model-bound data table -->
+<noundry-data-table asp-for="Users" 
+                   title="Team Members"
+                   show-search="true"
+                   show-pagination="true"
+                   per-page="10">
+    <noundry-data-table-column key="Id" label="ID" sortable="true" />
+    <noundry-data-table-column key="Name" label="Name" sortable="true" href="/users/{Id}" />
+    <noundry-data-table-column key="Email" label="Email" sortable="true" />
+    <noundry-data-table-column key="Status" label="Status" sortable="true" />
+</noundry-data-table>
+
 <!-- Static data table with client-side features -->
 <noundry-data-table title="Local Data" 
                    show-search="true"

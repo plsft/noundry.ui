@@ -18,6 +18,9 @@ public class FormsModel : PageModel
 
     public bool IsProcessing { get; set; } = false;
 
+    [BindProperty]
+    public List<UserInfo> Users { get; set; } = new();
+
     public void OnGet()
     {
         // Initialize with sample data
@@ -29,6 +32,17 @@ public class FormsModel : PageModel
             PreferredContactDate = DateTime.Now.AddDays(7),
             SubscribeToNewsletter = true,
             PreferredContactMethod = "email"
+        };
+
+        // Initialize sample users collection
+        Users = new List<UserInfo>
+        {
+            new UserInfo { Id = 1, Name = "Alice Johnson", Email = "alice@example.com", Status = "Active", Role = "Administrator", JoinDate = DateTime.Now.AddMonths(-6) },
+            new UserInfo { Id = 2, Name = "Bob Smith", Email = "bob@example.com", Status = "Inactive", Role = "User", JoinDate = DateTime.Now.AddMonths(-12) },
+            new UserInfo { Id = 3, Name = "Carol Williams", Email = "carol@example.com", Status = "Active", Role = "Moderator", JoinDate = DateTime.Now.AddMonths(-3) },
+            new UserInfo { Id = 4, Name = "David Brown", Email = "david@example.com", Status = "Active", Role = "User", JoinDate = DateTime.Now.AddMonths(-8) },
+            new UserInfo { Id = 5, Name = "Emma Davis", Email = "emma@example.com", Status = "Pending", Role = "User", JoinDate = DateTime.Now.AddDays(-15) },
+            new UserInfo { Id = 6, Name = "Frank Wilson", Email = "frank@example.com", Status = "Active", Role = "User", JoinDate = DateTime.Now.AddMonths(-2) }
         };
     }
 
@@ -105,4 +119,14 @@ public class ContactFormViewModel
     [Display(Name = "Service Rating")]
     [Range(1, 5)]
     public int ServiceRating { get; set; } = 0;
+}
+
+public class UserInfo
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Status { get; set; } = string.Empty;
+    public string Role { get; set; } = string.Empty;
+    public DateTime JoinDate { get; set; }
 }

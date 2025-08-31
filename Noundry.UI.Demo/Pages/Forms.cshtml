@@ -188,4 +188,28 @@
             </noundry-command-group>
         </noundry-command>
     </div>
+
+    <!-- Model-Bound Data Table -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-6">Model-Bound Data Table</h2>
+        <p class="text-gray-600 mb-4">
+            This data table is bound to a collection in the page model and demonstrates client-side sorting, 
+            search, and pagination with strongly-typed data.
+        </p>
+        
+        <noundry-data-table asp-for="Users" 
+                           title="Team Members" 
+                           show-search="true"
+                           show-pagination="true"
+                           per-page="4"
+                           hoverable="true"
+                           striped="false">
+            <noundry-data-table-column key="Id" label="ID" sortable="true" />
+            <noundry-data-table-column key="Name" label="Name" sortable="true" href="/users/{Id}" href-text="{Name}" />
+            <noundry-data-table-column key="Email" label="Email" sortable="true" />
+            <noundry-data-table-column key="Status" label="Status" sortable="true" />
+            <noundry-data-table-column key="Role" label="Role" sortable="true" />
+            <noundry-data-table-column key="JoinDate" label="Join Date" sortable="true" />
+        </noundry-data-table>
+    </div>
 </div>

@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Noundry.UI.Core;
 using Noundry.UI.Extensions;
+using System.Collections;
 
 namespace Noundry.UI.Components;
 
@@ -83,6 +85,16 @@ public class DataTableTagHelper : NoundryTagHelperBase
     public string Size { get; set; } = "md";
 
     /// <summary>
+    /// Model expression for collection binding
+    /// </summary>
+    public ModelExpression? AspFor { get; set; }
+
+    /// <summary>
+    /// Template for rendering each item in the collection
+    /// </summary>
+    public string? ItemTemplate { get; set; }
+
+    /// <summary>
     /// Additional CSS classes
     /// </summary>
     public string? CssClass { get; set; }
@@ -102,8 +114,14 @@ public class DataTableTagHelper : NoundryTagHelperBase
         };
         context.Items[typeof(DataTableContext)] = dataTableContext;
 
-        // Process child content to populate columns
+        // Process child content to populate columns and static data
         var content = await output.GetChildContentAsync();
+
+        // Handle model binding for collections
+        if (AspFor != null && AspFor.Model is IEnumerable collection && collection.GetType() != typeof(string))
+        {
+            ProcessCollectionData(dataTableContext, collection);
+        }
 
         output.TagName = "div";
         
@@ -114,7 +132,7 @@ public class DataTableTagHelper : NoundryTagHelperBase
         {
             SetAlpineAttribute(output, "init", "fetchData()");
         }
-        else if (dataTableContext.StaticData.Any())
+        else if (dataTableContext.StaticData.Any() || (AspFor?.Model is IEnumerable))
         {
             SetAlpineAttribute(output, "init", "initStaticData()");
         }
@@ -276,6 +294,46 @@ public class DataTableTagHelper : NoundryTagHelperBase
             " : "")}";
 
         output.Content.SetHtmlContent(dataTableHtml);
+    }
+
+    private void ProcessCollectionData(DataTableContext context, IEnumerable collection)
+    {
+        foreach (var item in collection)
+        {
+            if (item == null) continue;
+
+            var row = new DataTableRow();
+            var itemType = item.GetType();
+
+            // Use reflection to get property values for each column
+            foreach (var column in context.Columns)
+            {
+                var value = GetPropertyValue(item, column.Key);
+                row.Data[column.Key] = value?.ToString() ?? "";
+            }
+
+            context.StaticData.Add(row);
+        }
+    }
+
+    private object? GetPropertyValue(object obj, string propertyPath)
+    {
+        if (obj == null) return null;
+
+        var properties = propertyPath.Split('.');
+        var currentObj = obj;
+
+        foreach (var propertyName in properties)
+        {
+            if (currentObj == null) return null;
+
+            var property = currentObj.GetType().GetProperty(propertyName);
+            if (property == null) return null;
+
+            currentObj = property.GetValue(currentObj);
+        }
+
+        return currentObj;
     }
 
     private string BuildDataTableData(DataTableContext context)

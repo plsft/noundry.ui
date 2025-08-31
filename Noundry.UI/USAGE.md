@@ -358,7 +358,20 @@ Advanced data table with API support, pagination, sorting, and search.
     <noundry-data-table-column key="created" label="Created" sortable="true" align="right" />
 </noundry-data-table>
 
-<!-- Static data table -->
+<!-- Model-bound data table -->
+<noundry-data-table asp-for="Users" 
+                   title="Team Members"
+                   show-search="true"
+                   show-pagination="true"
+                   per-page="10">
+    <noundry-data-table-column key="Id" label="ID" sortable="true" />
+    <noundry-data-table-column key="Name" label="Name" sortable="true" href="/users/{Id}" />
+    <noundry-data-table-column key="Email" label="Email" sortable="true" />
+    <noundry-data-table-column key="Status" label="Status" sortable="true" />
+    <noundry-data-table-column key="Role" label="Role" sortable="false" />
+</noundry-data-table>
+
+<!-- Static inline data table -->
 <noundry-data-table title="Local Data" 
                    show-search="true"
                    show-pagination="true"
@@ -513,6 +526,33 @@ public class UserViewModel
     public DateTime? BirthDate { get; set; }
 
     public string? Country { get; set; }
+}
+
+// Data table model binding example
+public class PageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+{
+    [BindProperty]
+    public List<UserInfo> Users { get; set; } = new();
+    
+    public void OnGet()
+    {
+        Users = new List<UserInfo>
+        {
+            new UserInfo { Id = 1, Name = "Alice Johnson", Email = "alice@example.com", Status = "Active", Role = "Admin" },
+            new UserInfo { Id = 2, Name = "Bob Smith", Email = "bob@example.com", Status = "Inactive", Role = "User" },
+            // ... more users
+        };
+    }
+}
+
+public class UserInfo
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Status { get; set; } = string.Empty;
+    public string Role { get; set; } = string.Empty;
+    public DateTime JoinDate { get; set; }
 }
 ```
 
@@ -759,6 +799,7 @@ All interactive components use Alpine.js for client-side behavior. You can exten
 ### Data Table (`noundry-data-table`)
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
+| `asp-for` | ModelExpression | null | Model binding for collection data |
 | `title` | string | null | Table title displayed in header |
 | `api-url` | string | null | API endpoint URL for data loading |
 | `per-page` | int | 10 | Number of items per page |
