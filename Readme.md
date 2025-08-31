@@ -10,7 +10,7 @@ A modern C# ASP.NET TagHelper library that provides server-side components with 
 
 ## ✨ Features
 
-- **🎯 56 UI Components** - Complete set of interactive components
+- **🎯 58 UI Components** - Complete set of interactive components
 - **🔗 Full Model Binding** - Seamless ASP.NET model binding support  
 - **♿ Accessibility Ready** - ARIA attributes and keyboard navigation
 - **🎨 Tailwind CSS Integration** - Beautiful, consistent styling
@@ -103,9 +103,10 @@ builder.Services.AddNoundryUI(options =>
 - **Tooltip** - Hover information display
 - **Popover** - Click-activated content overlay
 
-### Data Display (17 TagHelpers)
+### Data Display (19 TagHelpers)
 - **Card** - Content containers with header/body/footer (4 TagHelpers)
 - **Table** - Data tables with sorting and responsive design (6 TagHelpers)
+- **Data Table** - Advanced data tables with API, pagination, sorting (2 TagHelpers)
 - **Pagination** - Page navigation with ranges
 - **Copy to Clipboard** - Text copy functionality
 - **Skeleton** - Loading state placeholders with animations (5 TagHelpers)
@@ -188,6 +189,30 @@ builder.Services.AddNoundryUI(options =>
     <noundry-skeleton variant="circle" width="3rem" height="h-12" />
     <noundry-skeleton variant="text" height="h-5" />
 </noundry-skeleton-container>
+```
+
+### Advanced Data Table
+```html
+<!-- API-powered data table -->
+<noundry-data-table title="Users" 
+                   api-url="/api/users"
+                   per-page="10"
+                   server-pagination="true"
+                   show-search="true">
+    <noundry-data-table-column key="id" label="ID" sortable="true" />
+    <noundry-data-table-column key="name" label="Name" sortable="true" href="/users/{id}" />
+    <noundry-data-table-column key="email" label="Email" sortable="true" />
+    <noundry-data-table-column key="role" label="Role" sortable="false" />
+</noundry-data-table>
+
+<!-- Static data table with client-side features -->
+<noundry-data-table title="Local Data" 
+                   show-search="true"
+                   show-pagination="true"
+                   per-page="5">
+    <noundry-data-table-column key="name" label="Name" sortable="true" />
+    <noundry-data-table-column key="status" label="Status" sortable="false" />
+</noundry-data-table>
 ```
 
 ## 🏗️ Project Structure

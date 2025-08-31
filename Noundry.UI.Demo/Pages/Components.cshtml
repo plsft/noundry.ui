@@ -183,7 +183,7 @@
             </div>
             
             <div>
-                <h3 class="text-lg font-medium mb-3">Data Table</h3>
+                <h3 class="text-lg font-medium mb-3">Basic Data Table</h3>
                 <noundry-table striped="true" hoverable="true">
                     <noundry-table-head>
                         <noundry-table-row>
@@ -213,6 +213,21 @@
                     </noundry-table-body>
                 </noundry-table>
             </div>
+        </div>
+        
+        <!-- Advanced Data Table -->
+        <div class="mt-6">
+            <h3 class="text-lg font-medium mb-3">Advanced Data Table with API</h3>
+            <noundry-data-table title="Posts from API" 
+                               api-url="https://jsonplaceholder.typicode.com/posts"
+                               per-page="5"
+                               show-search="true"
+                               show-pagination="true"
+                               hoverable="true">
+                <noundry-data-table-column key="id" label="ID" sortable="true" />
+                <noundry-data-table-column key="title" label="Title" sortable="true" href="/posts/{id}" href-text="{title}" />
+                <noundry-data-table-column key="body" label="Body" sortable="false" />
+            </noundry-data-table>
         </div>
     </div>
 

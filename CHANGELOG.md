@@ -5,6 +5,35 @@ All notable changes to the Noundry UI project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2025-08-30
+
+### ✨ Added
+
+#### New Advanced Data Table Component
+- **Data Table** (`noundry-data-table`, `noundry-data-table-column`) - Enterprise-grade data table with full API support
+  - **API Integration**: Load data from REST endpoints with automatic pagination parameters
+  - **Server/Client Pagination**: Support for both server-side and client-side pagination
+  - **Advanced Sorting**: Multi-column sorting with direction indicators
+  - **Search Functionality**: Global search across all columns with debouncing
+  - **Dynamic Columns**: Flexible column definition with sortable/non-sortable options
+  - **Link Support**: Column values as links with template placeholders
+  - **Loading States**: Spinner and error handling for API operations
+  - **Responsive Design**: Horizontal scrolling on mobile devices
+  - **Customizable**: Per-page options, messages, styling
+
+#### Advanced Features
+- **Nested Property Support**: Access nested object properties (e.g., 'user.profile.name')
+- **URL Templates**: Dynamic link generation with {property} placeholders
+- **Smart Pagination**: Ellipsis handling and intelligent page number display
+- **Header Management**: X-Total-Count header support for server pagination
+- **Error Handling**: Comprehensive error states and user feedback
+- **Accessibility**: Full ARIA support and keyboard navigation
+
+### 🔧 Improvements
+- Enhanced JavaScript generation for complex Alpine.js data objects
+- Improved template literal handling in C# string interpolation
+- Added comprehensive API parameter management
+
 ## [1.0.1] - 2025-08-30
 
 ### ✨ Added

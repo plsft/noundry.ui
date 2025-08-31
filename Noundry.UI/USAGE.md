@@ -317,6 +317,54 @@ Dropdown selection with search capability.
 </noundry-select>
 ```
 
+### Data Table
+Advanced data table with API support, pagination, sorting, and search.
+
+```html
+<!-- Basic API data table -->
+<noundry-data-table title="Users" 
+                   api-url="/api/users"
+                   per-page="10"
+                   show-search="true"
+                   show-pagination="true">
+    <noundry-data-table-column key="id" label="ID" sortable="true" />
+    <noundry-data-table-column key="name" label="Name" sortable="true" />
+    <noundry-data-table-column key="email" label="Email" sortable="true" />
+</noundry-data-table>
+
+<!-- Data table with links -->
+<noundry-data-table title="Posts" 
+                   api-url="https://jsonplaceholder.typicode.com/posts"
+                   per-page="15"
+                   server-pagination="true">
+    <noundry-data-table-column key="id" label="ID" sortable="true" />
+    <noundry-data-table-column key="title" label="Title" sortable="true" 
+                              href="/posts/{id}" href-text="{title}" />
+    <noundry-data-table-column key="body" label="Content" sortable="false" />
+</noundry-data-table>
+
+<!-- Custom styling and options -->
+<noundry-data-table title="Data"
+                   api-url="/api/data"
+                   per-page="25"
+                   per-page-options="10,25,50,100"
+                   search-placeholder="Search data..."
+                   no-results-message="No data found"
+                   loading-message="Loading data..."
+                   hoverable="true"
+                   striped="false">
+    <noundry-data-table-column key="name" label="Name" sortable="true" align="left" />
+    <noundry-data-table-column key="status" label="Status" sortable="true" align="center" />
+    <noundry-data-table-column key="created" label="Created" sortable="true" align="right" />
+</noundry-data-table>
+
+<!-- Minimal configuration -->
+<noundry-data-table api-url="/api/simple-data" show-search="false" show-pagination="false">
+    <noundry-data-table-column key="name" label="Name" />
+    <noundry-data-table-column key="value" label="Value" />
+</noundry-data-table>
+```
+
 ### Multi-Select
 Advanced multi-selection component with API support and tag display.
 
@@ -685,6 +733,38 @@ All interactive components use Alpine.js for client-side behavior. You can exten
 | `disabled` | bool | false | Whether the picker is disabled |
 | `required` | bool | false | Whether the picker is required |
 | `css-class` | string | null | Additional CSS classes |
+
+### Data Table (`noundry-data-table`)
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `title` | string | null | Table title displayed in header |
+| `api-url` | string | null | API endpoint URL for data loading |
+| `per-page` | int | 10 | Number of items per page |
+| `server-pagination` | bool | false | Whether to use server-side pagination |
+| `show-search` | bool | true | Whether to show search input |
+| `search-placeholder` | string | "Search..." | Search input placeholder text |
+| `show-pagination` | bool | true | Whether to show pagination controls |
+| `show-per-page-selector` | bool | true | Whether to show per-page selector |
+| `per-page-options` | string | "5,10,25,50" | Comma-separated per-page options |
+| `no-results-message` | string | "No results found" | Message when no results |
+| `loading-message` | string | "Loading..." | Loading state message |
+| `error-message` | string | "Error loading data" | Error message prefix |
+| `hoverable` | bool | true | Whether rows are hoverable |
+| `striped` | bool | false | Whether table has striped rows |
+| `size` | string | "md" | Table size: sm, md, lg |
+| `css-class` | string | null | Additional CSS classes |
+
+### Data Table Column (`noundry-data-table-column`)
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `key` | string | required | Column key/property name |
+| `label` | string | required | Column display label |
+| `sortable` | bool | false | Whether this column is sortable |
+| `href` | string | null | URL template for links (use {property} placeholders) |
+| `href-text` | string | null | Text template for link display |
+| `width` | string | null | Column width class |
+| `align` | string | "left" | Text alignment: left, center, right |
+| `hidden` | bool | false | Whether column is initially hidden |
 
 ### Multi-Select (`noundry-multi-select`)
 | Property | Type | Default | Description |

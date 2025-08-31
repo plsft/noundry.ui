@@ -12,6 +12,7 @@
       "Bash(git commit:*)",
       "Bash(timeout:*)",
       "Read(/C:\\Temp/**)",
+      "Read(/C:\\temp/**)",
       "Read(/C:\\temp/**)"
     ],
     "deny": [],
