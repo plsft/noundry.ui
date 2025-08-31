@@ -10,7 +10,7 @@ A modern C# ASP.NET TagHelper library that provides server-side components with 
 
 ## ✨ Features
 
-- **🎯 58 UI Components** - Complete set of interactive components
+- **🎯 62 UI Components** - Complete set of interactive components
 - **🔗 Full Model Binding** - Seamless ASP.NET model binding support  
 - **♿ Accessibility Ready** - ARIA attributes and keyboard navigation
 - **🎨 Tailwind CSS Integration** - Beautiful, consistent styling
@@ -103,10 +103,10 @@ builder.Services.AddNoundryUI(options =>
 - **Tooltip** - Hover information display
 - **Popover** - Click-activated content overlay
 
-### Data Display (19 TagHelpers)
+### Data Display (23 TagHelpers)
 - **Card** - Content containers with header/body/footer (4 TagHelpers)
 - **Table** - Data tables with sorting and responsive design (6 TagHelpers)
-- **Data Table** - Advanced data tables with API, pagination, sorting (2 TagHelpers)
+- **Data Table** - Advanced data tables with API, pagination, sorting (4 TagHelpers)
 - **Pagination** - Page navigation with ranges
 - **Copy to Clipboard** - Text copy functionality
 - **Skeleton** - Loading state placeholders with animations (5 TagHelpers)
@@ -211,7 +211,20 @@ builder.Services.AddNoundryUI(options =>
                    show-pagination="true"
                    per-page="5">
     <noundry-data-table-column key="name" label="Name" sortable="true" />
-    <noundry-data-table-column key="status" label="Status" sortable="false" />
+    <noundry-data-table-column key="status" label="Status" sortable="true" />
+    <noundry-data-table-column key="role" label="Role" sortable="false" />
+    
+    <noundry-data-table-row>
+        <noundry-data-table-cell key="name">Alice Johnson</noundry-data-table-cell>
+        <noundry-data-table-cell key="status">Active</noundry-data-table-cell>
+        <noundry-data-table-cell key="role">Administrator</noundry-data-table-cell>
+    </noundry-data-table-row>
+    
+    <noundry-data-table-row>
+        <noundry-data-table-cell key="name">Bob Smith</noundry-data-table-cell>
+        <noundry-data-table-cell key="status">Inactive</noundry-data-table-cell>
+        <noundry-data-table-cell key="role">User</noundry-data-table-cell>
+    </noundry-data-table-row>
 </noundry-data-table>
 ```
 

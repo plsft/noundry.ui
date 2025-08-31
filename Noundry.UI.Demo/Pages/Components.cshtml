@@ -229,6 +229,49 @@
                 <noundry-data-table-column key="body" label="Body" sortable="false" />
             </noundry-data-table>
         </div>
+        
+        <div class="mt-6">
+            <h3 class="text-lg font-medium mb-3">Static Data Table</h3>
+            <noundry-data-table title="Local Data" 
+                               show-search="true"
+                               show-pagination="true"
+                               per-page="3"
+                               hoverable="true">
+                <noundry-data-table-column key="name" label="Name" sortable="true" />
+                <noundry-data-table-column key="status" label="Status" sortable="true" />
+                <noundry-data-table-column key="role" label="Role" sortable="false" />
+                
+                <noundry-data-table-row>
+                    <noundry-data-table-cell key="name">Alice Johnson</noundry-data-table-cell>
+                    <noundry-data-table-cell key="status">Active</noundry-data-table-cell>
+                    <noundry-data-table-cell key="role">Administrator</noundry-data-table-cell>
+                </noundry-data-table-row>
+                
+                <noundry-data-table-row>
+                    <noundry-data-table-cell key="name">Bob Smith</noundry-data-table-cell>
+                    <noundry-data-table-cell key="status">Inactive</noundry-data-table-cell>
+                    <noundry-data-table-cell key="role">User</noundry-data-table-cell>
+                </noundry-data-table-row>
+                
+                <noundry-data-table-row>
+                    <noundry-data-table-cell key="name">Carol Williams</noundry-data-table-cell>
+                    <noundry-data-table-cell key="status">Active</noundry-data-table-cell>
+                    <noundry-data-table-cell key="role">Moderator</noundry-data-table-cell>
+                </noundry-data-table-row>
+                
+                <noundry-data-table-row>
+                    <noundry-data-table-cell key="name">David Brown</noundry-data-table-cell>
+                    <noundry-data-table-cell key="status">Active</noundry-data-table-cell>
+                    <noundry-data-table-cell key="role">User</noundry-data-table-cell>
+                </noundry-data-table-row>
+                
+                <noundry-data-table-row>
+                    <noundry-data-table-cell key="name">Emma Davis</noundry-data-table-cell>
+                    <noundry-data-table-cell key="status">Pending</noundry-data-table-cell>
+                    <noundry-data-table-cell key="role">User</noundry-data-table-cell>
+                </noundry-data-table-row>
+            </noundry-data-table>
+        </div>
     </div>
 
     <!-- Skeleton Loading States -->

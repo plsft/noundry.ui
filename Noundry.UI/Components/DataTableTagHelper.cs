@@ -114,6 +114,10 @@ public class DataTableTagHelper : NoundryTagHelperBase
         {
             SetAlpineAttribute(output, "init", "fetchData()");
         }
+        else if (dataTableContext.StaticData.Any())
+        {
+            SetAlpineAttribute(output, "init", "initStaticData()");
+        }
 
         var classes = new List<string>
         {
@@ -280,13 +284,25 @@ public class DataTableTagHelper : NoundryTagHelperBase
         var columnsJs = string.Join(",", context.Columns.Select(col => 
             $"{{key: '{EscapeJavaScriptString(col.Key)}', label: '{EscapeJavaScriptString(col.Label)}', sortable: {col.Sortable.ToString().ToLower()}, href: {(string.IsNullOrEmpty(col.Href) ? "null" : $"'{EscapeJavaScriptString(col.Href)}'")}, hrefText: {(string.IsNullOrEmpty(col.HrefText) ? "null" : $"'{EscapeJavaScriptString(col.HrefText)}'")}, width: {(string.IsNullOrEmpty(col.Width) ? "null" : $"'{EscapeJavaScriptString(col.Width)}'")}, align: '{EscapeJavaScriptString(col.Align)}', hidden: {col.Hidden.ToString().ToLower()}}}"));
 
+        // Build static data if available
+        var staticDataJs = "";
+        if (context.StaticData.Any())
+        {
+            var dataItems = context.StaticData.Select(row => 
+            {
+                var properties = row.Data.Select(kvp => $"\"{kvp.Key}\": \"{EscapeJavaScriptString(kvp.Value)}\"");
+                return $"{{{string.Join(", ", properties)}}}";
+            });
+            staticDataJs = $"[{string.Join(", ", dataItems)}]";
+        }
+
         var builder = new AlpineDataBuilder()
             .AddStringProperty("apiUrl", context.ApiUrl)
             .AddProperty("columns", $"[{columnsJs}]")
             .AddProperty("perPage", PerPage)
-            .AddProperty("data", new object[0])
+            .AddProperty("data", staticDataJs.Length > 0 ? staticDataJs : "[]")
             .AddProperty("filteredData", new object[0])
-            .AddBooleanProperty("loading", !string.IsNullOrEmpty(ApiUrl))
+            .AddBooleanProperty("loading", !string.IsNullOrEmpty(ApiUrl) && context.StaticData.Count == 0)
             .AddProperty("error", "null")
             .AddProperty("currentPage", 1)
             .AddStringProperty("searchTerm", "")
@@ -410,6 +426,9 @@ public class DataTableTagHelper : NoundryTagHelperBase
             } 
             this.filteredData = filtered; 
         }");
+
+        // Static data initialization
+        builder.AddMethod("initStaticData() { this.filteredData = [...this.data]; this.applyFiltersAndSort(); this.loading = false; }");
 
         // Utility methods
         builder.AddMethod("getNestedValue(obj, path) { return path.split('.').reduce((prev, curr) => { return prev && prev[curr] !== undefined ? prev[curr] : null; }, obj); }");
@@ -561,6 +580,61 @@ public class DataTableColumnTagHelper : NoundryTagHelperBase
     }
 }
 
+[HtmlTargetElement("noundry-data-table-row")]
+public class DataTableRowTagHelper : NoundryTagHelperBase
+{
+    public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+    {
+        var dataTableContext = (DataTableContext?)context.Items[typeof(DataTableContext)];
+        var rowContext = new DataTableRowContext();
+        context.Items[typeof(DataTableRowContext)] = rowContext;
+
+        await output.GetChildContentAsync();
+
+        if (dataTableContext != null)
+        {
+            dataTableContext.StaticData.Add(new DataTableRow
+            {
+                Data = rowContext.CellData
+            });
+        }
+
+        output.SuppressOutput();
+    }
+}
+
+[HtmlTargetElement("noundry-data-table-cell")]
+public class DataTableCellTagHelper : NoundryTagHelperBase
+{
+    /// <summary>
+    /// Column key this cell belongs to
+    /// </summary>
+    public string Key { get; set; } = string.Empty;
+
+    public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+    {
+        var rowContext = (DataTableRowContext?)context.Items[typeof(DataTableRowContext)];
+        var content = await output.GetChildContentAsync();
+
+        if (rowContext != null && !string.IsNullOrEmpty(Key))
+        {
+            rowContext.CellData[Key] = content.GetContent();
+        }
+
+        output.SuppressOutput();
+    }
+}
+
+public class DataTableRowContext
+{
+    public Dictionary<string, string> CellData { get; set; } = new();
+}
+
+public class DataTableRow
+{
+    public Dictionary<string, string> Data { get; set; } = new();
+}
+
 public class DataTableContext
 {
     public string ApiUrl { get; set; } = string.Empty;
@@ -572,6 +646,7 @@ public class DataTableContext
     public bool Striped { get; set; }
     public string Size { get; set; } = "md";
     public List<DataTableColumn> Columns { get; set; } = new();
+    public List<DataTableRow> StaticData { get; set; } = new();
 }
 
 public class DataTableColumn

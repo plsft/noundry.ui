@@ -358,7 +358,29 @@ Advanced data table with API support, pagination, sorting, and search.
     <noundry-data-table-column key="created" label="Created" sortable="true" align="right" />
 </noundry-data-table>
 
-<!-- Minimal configuration -->
+<!-- Static data table -->
+<noundry-data-table title="Local Data" 
+                   show-search="true"
+                   show-pagination="true"
+                   per-page="5">
+    <noundry-data-table-column key="name" label="Name" sortable="true" />
+    <noundry-data-table-column key="status" label="Status" sortable="true" />
+    <noundry-data-table-column key="role" label="Role" sortable="false" />
+    
+    <noundry-data-table-row>
+        <noundry-data-table-cell key="name">Alice Johnson</noundry-data-table-cell>
+        <noundry-data-table-cell key="status">Active</noundry-data-table-cell>
+        <noundry-data-table-cell key="role">Administrator</noundry-data-table-cell>
+    </noundry-data-table-row>
+    
+    <noundry-data-table-row>
+        <noundry-data-table-cell key="name">Bob Smith</noundry-data-table-cell>
+        <noundry-data-table-cell key="status">Inactive</noundry-data-table-cell>
+        <noundry-data-table-cell key="role">User</noundry-data-table-cell>
+    </noundry-data-table-row>
+</noundry-data-table>
+
+<!-- Minimal API configuration -->
 <noundry-data-table api-url="/api/simple-data" show-search="false" show-pagination="false">
     <noundry-data-table-column key="name" label="Name" />
     <noundry-data-table-column key="value" label="Value" />
@@ -765,6 +787,14 @@ All interactive components use Alpine.js for client-side behavior. You can exten
 | `width` | string | null | Column width class |
 | `align` | string | "left" | Text alignment: left, center, right |
 | `hidden` | bool | false | Whether column is initially hidden |
+
+### Data Table Row (`noundry-data-table-row`)
+Used for static data in data tables. No properties - acts as a container for cells.
+
+### Data Table Cell (`noundry-data-table-cell`)
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `key` | string | required | Column key this cell belongs to |
 
 ### Multi-Select (`noundry-multi-select`)
 | Property | Type | Default | Description |
